@@ -1,0 +1,824 @@
+{
+  "project_id": "geoia-carbon-001",
+  "area_ha": 125.4,
+  "land_use": "agroforestry",
+  "calculation_mode": "inventory",
+  "result_type": "carbon_stock_and_removal_estimate",
+  "status": "partial",
+  "carbon_stock": {
+    "inventory_id": "inv-2026",
+    "year": 2026,
+    "area_ha": 125.4,
+    "pools": {
+      "aboveground_biomass": {
+        "pool": "aboveground_biomass",
+        "dry_biomass_t": {
+          "value": 7712.1,
+          "unit": "t dry matter",
+          "estimation_type": "measured",
+          "data_level": "measured",
+          "source": "inventário de campo — parcelas permanentes",
+          "tier": 3,
+          "uncertainty_percent": 14.0,
+          "factors_used": [],
+          "equations_used": [
+            "AGB_total = AGB_density * area"
+          ],
+          "inputs": {
+            "dry_biomass_t_ha": 61.5,
+            "area_ha": 125.4
+          },
+          "notes": []
+        },
+        "carbon_t": {
+          "value": 3624.687,
+          "unit": "tC",
+          "estimation_type": "measured",
+          "data_level": "project_specific",
+          "source": "inventário de campo — parcelas permanentes",
+          "tier": 3,
+          "uncertainty_percent": 14.0,
+          "factors_used": [
+            "PROJECT::carbon_fraction"
+          ],
+          "equations_used": [
+            "AGB_total = AGB_density * area",
+            "carbon = dry_biomass * carbon_fraction"
+          ],
+          "inputs": {
+            "pool": "aboveground_biomass",
+            "dry_biomass_t": 7712.1,
+            "carbon_fraction": 0.47,
+            "carbon_fraction_source": "valor adotado pelo projeto — pendente de conferência IPCC Tabela 4.3"
+          },
+          "notes": []
+        },
+        "co2e_t": 13290.518999999998,
+        "carbon_t_ha": 28.904999999999998,
+        "co2e_t_ha": 105.98499999999999,
+        "uncertainty": {
+          "available": true,
+          "estimate": 3624.687,
+          "lower_bound": 3117.2308199999998,
+          "upper_bound": 4132.14318,
+          "uncertainty_percent": 14.0,
+          "method": "IPCC Approach 1 — propagação por produto em quadratura",
+          "reason": null
+        }
+      },
+      "belowground_biomass": {
+        "pool": "belowground_biomass",
+        "dry_biomass_t": {
+          "value": 1850.904,
+          "unit": "t dry matter",
+          "estimation_type": "estimated",
+          "data_level": "project_specific",
+          "source": "parâmetro regional adotado pelo projeto (REQUER FONTE)",
+          "tier": 2,
+          "uncertainty_percent": 37.69615364994153,
+          "factors_used": [
+            "PROJECT::root_to_shoot_ratio"
+          ],
+          "equations_used": [
+            "BGB = AGB * root_to_shoot_ratio"
+          ],
+          "inputs": {
+            "agb_t": 7712.1,
+            "root_to_shoot_ratio": 0.24
+          },
+          "notes": [
+            "BGB derivada de AGB — não é medição direta de raízes."
+          ]
+        },
+        "carbon_t": {
+          "value": 869.9248799999999,
+          "unit": "tC",
+          "estimation_type": "estimated",
+          "data_level": "project_specific",
+          "source": "parâmetro regional adotado pelo projeto (REQUER FONTE)",
+          "tier": 2,
+          "uncertainty_percent": 37.69615364994153,
+          "factors_used": [
+            "PROJECT::root_to_shoot_ratio",
+            "PROJECT::carbon_fraction"
+          ],
+          "equations_used": [
+            "BGB = AGB * root_to_shoot_ratio",
+            "carbon = dry_biomass * carbon_fraction"
+          ],
+          "inputs": {
+            "pool": "belowground_biomass",
+            "dry_biomass_t": 1850.904,
+            "carbon_fraction": 0.47,
+            "carbon_fraction_source": "valor adotado pelo projeto — pendente de conferência IPCC Tabela 4.3"
+          },
+          "notes": [
+            "BGB derivada de AGB — não é medição direta de raízes."
+          ]
+        },
+        "co2e_t": 3189.7245599999997,
+        "carbon_t_ha": 6.937199999999999,
+        "co2e_t_ha": 25.436399999999995,
+        "uncertainty": {
+          "available": true,
+          "estimate": 869.9248799999999,
+          "lower_bound": 541.9966605961305,
+          "upper_bound": 1197.8530994038692,
+          "uncertainty_percent": 37.69615364994153,
+          "method": "IPCC Approach 1 — propagação por produto em quadratura",
+          "reason": null
+        }
+      },
+      "deadwood": {
+        "pool": "deadwood",
+        "dry_biomass_t": {
+          "value": null,
+          "unit": "t dry matter",
+          "estimation_type": "not_available",
+          "data_level": null,
+          "source": null,
+          "tier": null,
+          "uncertainty_percent": null,
+          "factors_used": [],
+          "equations_used": [],
+          "inputs": {},
+          "notes": [
+            "deadwood: sem medição informada e sem fator default validado."
+          ]
+        },
+        "carbon_t": {
+          "value": null,
+          "unit": "tC",
+          "estimation_type": "not_available",
+          "data_level": null,
+          "source": null,
+          "tier": null,
+          "uncertainty_percent": null,
+          "factors_used": [],
+          "equations_used": [],
+          "inputs": {},
+          "notes": [
+            "deadwood: sem medição informada e sem fator default validado."
+          ]
+        },
+        "co2e_t": null,
+        "carbon_t_ha": null,
+        "co2e_t_ha": null,
+        "uncertainty": {
+          "available": false,
+          "estimate": null,
+          "lower_bound": null,
+          "upper_bound": null,
+          "uncertainty_percent": null,
+          "method": null,
+          "reason": null
+        }
+      },
+      "litter": {
+        "pool": "litter",
+        "dry_biomass_t": {
+          "value": null,
+          "unit": "t dry matter",
+          "estimation_type": "not_available",
+          "data_level": null,
+          "source": null,
+          "tier": null,
+          "uncertainty_percent": null,
+          "factors_used": [],
+          "equations_used": [],
+          "inputs": {},
+          "notes": [
+            "litter: sem medição informada e sem fator default validado."
+          ]
+        },
+        "carbon_t": {
+          "value": null,
+          "unit": "tC",
+          "estimation_type": "not_available",
+          "data_level": null,
+          "source": null,
+          "tier": null,
+          "uncertainty_percent": null,
+          "factors_used": [],
+          "equations_used": [],
+          "inputs": {},
+          "notes": [
+            "litter: sem medição informada e sem fator default validado."
+          ]
+        },
+        "co2e_t": null,
+        "carbon_t_ha": null,
+        "co2e_t_ha": null,
+        "uncertainty": {
+          "available": false,
+          "estimate": null,
+          "lower_bound": null,
+          "upper_bound": null,
+          "uncertainty_percent": null,
+          "method": null,
+          "reason": null
+        }
+      },
+      "soil_organic_carbon": {
+        "pool": "soil_organic_carbon",
+        "dry_biomass_t": null,
+        "carbon_t": {
+          "value": 10742.7672,
+          "unit": "tC",
+          "estimation_type": "measured",
+          "data_level": "measured",
+          "source": "amostragem composta 0-30 cm",
+          "tier": 3,
+          "uncertainty_percent": 22.0,
+          "factors_used": [],
+          "equations_used": [
+            "SOC_tC_ha = bulk_density_g_cm3 * depth_cm * organic_carbon_percent * (1 - coarse_fragment_fraction)",
+            "SOC_total = SOC_density * area"
+          ],
+          "inputs": {
+            "bulk_density_g_cm3": 1.18,
+            "depth_cm": 30.0,
+            "organic_carbon_percent": 2.42,
+            "coarse_fragment_fraction": 0.0,
+            "area_ha": 125.4,
+            "soc_tC_ha": 85.66799999999999,
+            "sample_count": 12.0,
+            "m2_per_ha": 10000.0
+          },
+          "notes": [
+            "SOC medido até 30 cm. Profundidade faz parte da definição do estoque — comparar apenas com inventários da mesma profundidade."
+          ]
+        },
+        "co2e_t": 39390.1464,
+        "carbon_t_ha": 85.66799999999999,
+        "co2e_t_ha": 314.116,
+        "uncertainty": {
+          "available": true,
+          "estimate": 10742.7672,
+          "lower_bound": 8379.358416,
+          "upper_bound": 13106.175984000001,
+          "uncertainty_percent": 22.0,
+          "method": "IPCC Approach 1 — propagação por produto em quadratura",
+          "reason": null
+        }
+      }
+    },
+    "total_carbon_t": 15237.37908,
+    "total_co2e_t": 55870.38996,
+    "carbon_t_ha": 121.5102,
+    "co2e_t_ha": 445.5374,
+    "available_pools": [
+      "aboveground_biomass",
+      "belowground_biomass",
+      "soil_organic_carbon"
+    ],
+    "missing_pools": [
+      "deadwood",
+      "litter"
+    ],
+    "uncertainty": {
+      "available": true,
+      "estimate": 15237.37908,
+      "lower_bound": 12797.963213037185,
+      "upper_bound": 17676.794946962815,
+      "uncertainty_percent": 16.009419035618134,
+      "method": "IPCC Approach 1 — propagação por soma em quadratura",
+      "reason": null
+    },
+    "status": "partial"
+  },
+  "baseline_stock": {
+    "inventory_id": "inv-2024",
+    "year": 2024,
+    "area_ha": 125.4,
+    "pools": {
+      "aboveground_biomass": {
+        "pool": "aboveground_biomass",
+        "dry_biomass_t": {
+          "value": 6771.6,
+          "unit": "t dry matter",
+          "estimation_type": "measured",
+          "data_level": "measured",
+          "source": "inventário de campo — parcelas permanentes",
+          "tier": 3,
+          "uncertainty_percent": 14.0,
+          "factors_used": [],
+          "equations_used": [
+            "AGB_total = AGB_density * area"
+          ],
+          "inputs": {
+            "dry_biomass_t_ha": 54.0,
+            "area_ha": 125.4
+          },
+          "notes": []
+        },
+        "carbon_t": {
+          "value": 3182.652,
+          "unit": "tC",
+          "estimation_type": "measured",
+          "data_level": "project_specific",
+          "source": "inventário de campo — parcelas permanentes",
+          "tier": 3,
+          "uncertainty_percent": 14.0,
+          "factors_used": [
+            "PROJECT::carbon_fraction"
+          ],
+          "equations_used": [
+            "AGB_total = AGB_density * area",
+            "carbon = dry_biomass * carbon_fraction"
+          ],
+          "inputs": {
+            "pool": "aboveground_biomass",
+            "dry_biomass_t": 6771.6,
+            "carbon_fraction": 0.47,
+            "carbon_fraction_source": "valor adotado pelo projeto — pendente de conferência IPCC Tabela 4.3"
+          },
+          "notes": []
+        },
+        "co2e_t": 11669.724,
+        "carbon_t_ha": 25.38,
+        "co2e_t_ha": 93.06,
+        "uncertainty": {
+          "available": true,
+          "estimate": 3182.652,
+          "lower_bound": 2737.08072,
+          "upper_bound": 3628.22328,
+          "uncertainty_percent": 14.0,
+          "method": "IPCC Approach 1 — propagação por produto em quadratura",
+          "reason": null
+        }
+      },
+      "belowground_biomass": {
+        "pool": "belowground_biomass",
+        "dry_biomass_t": {
+          "value": 1625.184,
+          "unit": "t dry matter",
+          "estimation_type": "estimated",
+          "data_level": "project_specific",
+          "source": "parâmetro regional adotado pelo projeto (REQUER FONTE)",
+          "tier": 2,
+          "uncertainty_percent": 37.69615364994153,
+          "factors_used": [
+            "PROJECT::root_to_shoot_ratio"
+          ],
+          "equations_used": [
+            "BGB = AGB * root_to_shoot_ratio"
+          ],
+          "inputs": {
+            "agb_t": 6771.6,
+            "root_to_shoot_ratio": 0.24
+          },
+          "notes": [
+            "BGB derivada de AGB — não é medição direta de raízes."
+          ]
+        },
+        "carbon_t": {
+          "value": 763.8364799999999,
+          "unit": "tC",
+          "estimation_type": "estimated",
+          "data_level": "project_specific",
+          "source": "parâmetro regional adotado pelo projeto (REQUER FONTE)",
+          "tier": 2,
+          "uncertainty_percent": 37.69615364994153,
+          "factors_used": [
+            "PROJECT::root_to_shoot_ratio",
+            "PROJECT::carbon_fraction"
+          ],
+          "equations_used": [
+            "BGB = AGB * root_to_shoot_ratio",
+            "carbon = dry_biomass * carbon_fraction"
+          ],
+          "inputs": {
+            "pool": "belowground_biomass",
+            "dry_biomass_t": 1625.184,
+            "carbon_fraction": 0.47,
+            "carbon_fraction_source": "valor adotado pelo projeto — pendente de conferência IPCC Tabela 4.3"
+          },
+          "notes": [
+            "BGB derivada de AGB — não é medição direta de raízes."
+          ]
+        },
+        "co2e_t": 2800.7337599999996,
+        "carbon_t_ha": 6.091199999999999,
+        "co2e_t_ha": 22.334399999999995,
+        "uncertainty": {
+          "available": true,
+          "estimate": 763.8364799999999,
+          "lower_bound": 475.89950686489505,
+          "upper_bound": 1051.7734531351048,
+          "uncertainty_percent": 37.69615364994153,
+          "method": "IPCC Approach 1 — propagação por produto em quadratura",
+          "reason": null
+        }
+      },
+      "deadwood": {
+        "pool": "deadwood",
+        "dry_biomass_t": {
+          "value": null,
+          "unit": "t dry matter",
+          "estimation_type": "not_available",
+          "data_level": null,
+          "source": null,
+          "tier": null,
+          "uncertainty_percent": null,
+          "factors_used": [],
+          "equations_used": [],
+          "inputs": {},
+          "notes": [
+            "deadwood: sem medição informada e sem fator default validado."
+          ]
+        },
+        "carbon_t": {
+          "value": null,
+          "unit": "tC",
+          "estimation_type": "not_available",
+          "data_level": null,
+          "source": null,
+          "tier": null,
+          "uncertainty_percent": null,
+          "factors_used": [],
+          "equations_used": [],
+          "inputs": {},
+          "notes": [
+            "deadwood: sem medição informada e sem fator default validado."
+          ]
+        },
+        "co2e_t": null,
+        "carbon_t_ha": null,
+        "co2e_t_ha": null,
+        "uncertainty": {
+          "available": false,
+          "estimate": null,
+          "lower_bound": null,
+          "upper_bound": null,
+          "uncertainty_percent": null,
+          "method": null,
+          "reason": null
+        }
+      },
+      "litter": {
+        "pool": "litter",
+        "dry_biomass_t": {
+          "value": null,
+          "unit": "t dry matter",
+          "estimation_type": "not_available",
+          "data_level": null,
+          "source": null,
+          "tier": null,
+          "uncertainty_percent": null,
+          "factors_used": [],
+          "equations_used": [],
+          "inputs": {},
+          "notes": [
+            "litter: sem medição informada e sem fator default validado."
+          ]
+        },
+        "carbon_t": {
+          "value": null,
+          "unit": "tC",
+          "estimation_type": "not_available",
+          "data_level": null,
+          "source": null,
+          "tier": null,
+          "uncertainty_percent": null,
+          "factors_used": [],
+          "equations_used": [],
+          "inputs": {},
+          "notes": [
+            "litter: sem medição informada e sem fator default validado."
+          ]
+        },
+        "co2e_t": null,
+        "carbon_t_ha": null,
+        "co2e_t_ha": null,
+        "uncertainty": {
+          "available": false,
+          "estimate": null,
+          "lower_bound": null,
+          "upper_bound": null,
+          "uncertainty_percent": null,
+          "method": null,
+          "reason": null
+        }
+      },
+      "soil_organic_carbon": {
+        "pool": "soil_organic_carbon",
+        "dry_biomass_t": null,
+        "carbon_t": {
+          "value": 10254.4596,
+          "unit": "tC",
+          "estimation_type": "measured",
+          "data_level": "measured",
+          "source": "amostragem composta 0-30 cm",
+          "tier": 3,
+          "uncertainty_percent": 22.0,
+          "factors_used": [],
+          "equations_used": [
+            "SOC_tC_ha = bulk_density_g_cm3 * depth_cm * organic_carbon_percent * (1 - coarse_fragment_fraction)",
+            "SOC_total = SOC_density * area"
+          ],
+          "inputs": {
+            "bulk_density_g_cm3": 1.18,
+            "depth_cm": 30.0,
+            "organic_carbon_percent": 2.31,
+            "coarse_fragment_fraction": 0.0,
+            "area_ha": 125.4,
+            "soc_tC_ha": 81.774,
+            "sample_count": 12.0,
+            "m2_per_ha": 10000.0
+          },
+          "notes": [
+            "SOC medido até 30 cm. Profundidade faz parte da definição do estoque — comparar apenas com inventários da mesma profundidade."
+          ]
+        },
+        "co2e_t": 37599.6852,
+        "carbon_t_ha": 81.774,
+        "co2e_t_ha": 299.83799999999997,
+        "uncertainty": {
+          "available": true,
+          "estimate": 10254.4596,
+          "lower_bound": 7998.478488000001,
+          "upper_bound": 12510.440712,
+          "uncertainty_percent": 22.0,
+          "method": "IPCC Approach 1 — propagação por produto em quadratura",
+          "reason": null
+        }
+      }
+    },
+    "total_carbon_t": 14200.94808,
+    "total_co2e_t": 52070.14296,
+    "carbon_t_ha": 113.2452,
+    "co2e_t_ha": 415.2324,
+    "available_pools": [
+      "aboveground_biomass",
+      "belowground_biomass",
+      "soil_organic_carbon"
+    ],
+    "missing_pools": [
+      "deadwood",
+      "litter"
+    ],
+    "uncertainty": {
+      "available": true,
+      "estimate": 14200.94808,
+      "lower_bound": 11883.429526943779,
+      "upper_bound": 16518.46663305622,
+      "uncertainty_percent": 16.319463602011993,
+      "method": "IPCC Approach 1 — propagação por soma em quadratura",
+      "reason": null
+    },
+    "status": "partial"
+  },
+  "change": {
+    "baseline_year": 2024,
+    "current_year": 2026,
+    "period_years": 2,
+    "comparable_pools": [
+      "aboveground_biomass",
+      "belowground_biomass",
+      "soil_organic_carbon"
+    ],
+    "non_comparable_pools": [
+      {
+        "pool": "deadwood",
+        "baseline_carbon_t": null,
+        "current_carbon_t": null,
+        "delta_carbon_t": null,
+        "comparable": false,
+        "reason": "pool ausente nos dois períodos — excluído do delta (não pode ser tratado como zero)"
+      },
+      {
+        "pool": "litter",
+        "baseline_carbon_t": null,
+        "current_carbon_t": null,
+        "delta_carbon_t": null,
+        "comparable": false,
+        "reason": "pool ausente nos dois períodos — excluído do delta (não pode ser tratado como zero)"
+      }
+    ],
+    "pool_changes": [
+      {
+        "pool": "aboveground_biomass",
+        "baseline_carbon_t": 3182.652,
+        "current_carbon_t": 3624.687,
+        "delta_carbon_t": 442.03499999999985,
+        "comparable": true,
+        "reason": null
+      },
+      {
+        "pool": "belowground_biomass",
+        "baseline_carbon_t": 763.8364799999999,
+        "current_carbon_t": 869.9248799999999,
+        "delta_carbon_t": 106.08839999999998,
+        "comparable": true,
+        "reason": null
+      },
+      {
+        "pool": "deadwood",
+        "baseline_carbon_t": null,
+        "current_carbon_t": null,
+        "delta_carbon_t": null,
+        "comparable": false,
+        "reason": "pool ausente nos dois períodos — excluído do delta (não pode ser tratado como zero)"
+      },
+      {
+        "pool": "litter",
+        "baseline_carbon_t": null,
+        "current_carbon_t": null,
+        "delta_carbon_t": null,
+        "comparable": false,
+        "reason": "pool ausente nos dois períodos — excluído do delta (não pode ser tratado como zero)"
+      },
+      {
+        "pool": "soil_organic_carbon",
+        "baseline_carbon_t": 10254.4596,
+        "current_carbon_t": 10742.7672,
+        "delta_carbon_t": 488.3076000000001,
+        "comparable": true,
+        "reason": null
+      }
+    ],
+    "baseline_comparable_carbon_t": 14200.94808,
+    "current_comparable_carbon_t": 15237.37908,
+    "delta_carbon_t": 1036.4310000000005,
+    "delta_co2e_t": 3800.2470000000017,
+    "direction": "increase",
+    "status": "partial",
+    "notes": [
+      "Delta calculado apenas sobre pools comparáveis: aboveground_biomass, belowground_biomass, soil_organic_carbon. Pools excluídos: deadwood, litter"
+    ]
+  },
+  "removal": {
+    "period_years": 2,
+    "carbon_stock_change_tC": 1036.4310000000005,
+    "co2_stock_change_tCO2e": 3800.2470000000017,
+    "annual_carbon_change_tC": 518.2155000000002,
+    "annual_co2_removal_tCO2e_year": 1900.1235000000008,
+    "annual_co2_removal_tCO2e_ha_year": 15.152500000000005,
+    "is_removal": true,
+    "method": "linear_annualization",
+    "notes": [
+      "Anualização linear assume taxa constante entre T0 e T1."
+    ]
+  },
+  "losses": {
+    "total_carbon_loss_tC": null,
+    "total_co2e_loss_tCO2e": null,
+    "quantified_events": 0,
+    "unquantified_events": 1,
+    "events": [
+      {
+        "event_type": "fire",
+        "date": "2025-09-14",
+        "affected_area_ha": 2.5,
+        "carbon_loss_tC": null,
+        "quantified": false,
+        "estimation_type": "not_available"
+      }
+    ]
+  },
+  "operational_emissions": {
+    "total_tCO2e": 3.4,
+    "resolved_entries": 1,
+    "unresolved_entries": 1,
+    "entries": [
+      {
+        "source": "transport",
+        "emission_tCO2e": 3.4,
+        "basis": "informado_diretamente"
+      },
+      {
+        "source": "diesel",
+        "activity_amount": 1800.0,
+        "activity_unit": "L",
+        "reason": "fator de emissão não disponível/validado ou atividade não informada"
+      }
+    ],
+    "notes": [
+      "1 lançamento(s) operacional(is) sem fator de emissão utilizável. Não foram estimados nem zerados."
+    ]
+  },
+  "net_balance": {
+    "gross_removals_tCO2e": 3800.2470000000017,
+    "carbon_losses_tCO2e": null,
+    "operational_emissions_tCO2e": 3.4,
+    "net_balance_tCO2e": 3796.8470000000016,
+    "status": "partial",
+    "excluded_components": [
+      "carbon_losses",
+      "operational_emissions_partial"
+    ],
+    "notes": [
+      "1 evento(s) de perda registrado(s) sem quantificação.",
+      "Perdas presentes mas não quantificadas — não subtraídas do balanço.",
+      "Emissões operacionais são contabilizadas separadamente do estoque biogênico."
+    ]
+  },
+  "quality": {
+    "confidence_score": 85,
+    "confidence_class": "very_high",
+    "data_quality_score": 100,
+    "methodology_tier": "Tier 3 + measured inventory",
+    "drivers": [
+      "Pool disponível: aboveground_biomass (measured)",
+      "Pool disponível: belowground_biomass (estimated)",
+      "Pool disponível: soil_organic_carbon (measured)",
+      "Série temporal comparável: 2024-2026 (2 anos)"
+    ],
+    "penalties": [
+      "Pool ausente: deadwood",
+      "Pool ausente: litter",
+      "Pools não comparáveis entre períodos"
+    ],
+    "disclaimer": "confidence_score é um indicador interno GEØ.IA de qualidade e completude dos dados. Não é certificação científica, não é probabilidade e não substitui análise de incerteza estatística."
+  },
+  "insights": [
+    {
+      "type": "dominant_pool",
+      "message": "soil_organic_carbon representa 70.5% do estoque de carbono MEDIDO (pools disponíveis: aboveground_biomass, belowground_biomass, soil_organic_carbon).",
+      "severity": "info"
+    },
+    {
+      "type": "data_gap",
+      "message": "Pools não contabilizados: deadwood, litter. O total NÃO representa o estoque completo da área.",
+      "severity": "warning"
+    },
+    {
+      "type": "comparability",
+      "message": "Pools excluídos do delta por não existirem nos dois períodos: deadwood, litter",
+      "severity": "warning"
+    },
+    {
+      "type": "stock_trend",
+      "message": "Aumento de estoque de 1036.43 tC em 2 ano(s). Estimativa de remoção, não crédito de carbono.",
+      "severity": "info"
+    },
+    {
+      "type": "operational_emissions",
+      "message": "1 lançamento(s) operacional(is) sem fator de emissão validado — não incluídos no balanço.",
+      "severity": "warning"
+    }
+  ],
+  "missing_data": [
+    "baseline::deadwood",
+    "baseline::litter",
+    "deadwood",
+    "litter"
+  ],
+  "validation_warnings": [],
+  "methodology": {
+    "framework": [
+      "IPCC 2006 Guidelines for National Greenhouse Gas Inventories, Volume 4 (AFOLU)",
+      "IPCC 2019 Refinement to the 2006 Guidelines",
+      "GHG Protocol Land Sector and Removals Standard (princípios aplicáveis)"
+    ],
+    "implemented_scope": [
+      "Carbon Inventory",
+      "Carbon Stock Estimate",
+      "Carbon Removal Estimate"
+    ],
+    "not_implemented": [
+      "Carbon Credit Potential",
+      "Verified Carbon Credits"
+    ],
+    "engine_version": "carbon-0.1.0",
+    "factor_database_version": "2026.01",
+    "methodology_version": "ipcc-2006-afolu+2019-refinement/geoia-p0"
+  },
+  "audit": {
+    "calculation_id": "7ec8c69d-18f0-4987-93da-3b270502a082",
+    "timestamp": "2026-08-13T20:43:59.069066Z",
+    "engine_version": "carbon-0.1.0",
+    "factor_database_version": "2026.01",
+    "methodology_version": "ipcc-2006-afolu+2019-refinement/geoia-p0",
+    "calculation_mode": "inventory",
+    "input_fingerprint": "905ddbb34caea3f221983d439d08ac4b6847176cb57ac372a17be947bea164ab",
+    "factors_used": [
+      {
+        "factor_id": "PROJECT::carbon_fraction",
+        "category": "carbon_fraction",
+        "value": 0.47,
+        "unit": "tC/t dry matter",
+        "data_level": "project_specific",
+        "tier": 2,
+        "source": "valor adotado pelo projeto — pendente de conferência IPCC Tabela 4.3",
+        "reference": null,
+        "validation_status": "project_supplied"
+      },
+      {
+        "factor_id": "PROJECT::root_to_shoot_ratio",
+        "category": "root_to_shoot_ratio",
+        "value": 0.24,
+        "unit": "t BGB / t AGB",
+        "data_level": "project_specific",
+        "tier": 2,
+        "source": "parâmetro regional adotado pelo projeto (REQUER FONTE)",
+        "reference": null,
+        "validation_status": "project_supplied"
+      }
+    ],
+    "equations_used": [],
+    "warnings": []
+  },
+  "disclaimer": "Estimativa técnica de estoque, remoções e mudanças de estoque de carbono. NÃO constitui crédito de carbono, crédito comercializável, certificação (Verra, Gold Standard ou equivalente), resultado auditado nem garantia de adicionalidade. Créditos exigem metodologia aprovada, baseline, adicionalidade, permanência, leakage, MRV, auditoria independente e registro."
+}

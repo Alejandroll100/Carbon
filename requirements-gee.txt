@@ -1,0 +1,10 @@
+# Dependências ADICIONAIS da camada Google Earth Engine.
+#
+# O núcleo científico do GEØ.IA Carbon NÃO depende de nada disto: os 233 testes
+# rodam sem Earth Engine, sem credencial e sem internet. Instale apenas se for
+# usar os endpoints /api/carbon/geospatial/*.
+#
+#   py -m pip install -r requirements-gee.txt
+#   earthengine authenticate
+
+earthengine-api>=1.0.0
