@@ -1,7 +1,7 @@
 """Schemas de request/response da API de carbono.
 
-Os modelos de domínio (``models/``) são a fonte de verdade. Aqui só existe o
-que é específico do transporte HTTP.
+Os modelos de domínio (``models/``) são a fonte de verdade.
+Aqui só existe o que é específico do transporte HTTP.
 """
 
 from __future__ import annotations
@@ -10,7 +10,14 @@ from typing import Optional
 
 from pydantic import BaseModel, Field
 
-from ..models.enums import CalculationMode, LandUse
+from ..models.enums import (
+    CalculationMode,
+    CarbonInputLevel,
+    IPCCClimateRegion,
+    IPCCSoilType,
+    LandUse,
+    TillageManagement,
+)
 from ..models.inventory import (
     BelowgroundObservation,
     BiomassObservation,
@@ -25,27 +32,52 @@ from ..models.vegetation import VegetationDescription
 from ..services.factor_service import ProjectParameter
 from ..services.geospatial_analysis import GeospatialAnalysisInput
 
+
 #: Entrada do endpoint geoespacial. O schema de domínio é a fonte de verdade;
 #: o transporte apenas o reexporta.
 GeospatialAnalyzeRequest = GeospatialAnalysisInput
 
 
 class CreateProjectRequest(BaseModel):
+    """Dados necessários para criar um projeto Carbon.
+
+    Os tipos metodológicos reutilizam os mesmos Enums do modelo de domínio
+    para manter o contrato HTTP alinhado com CarbonProject.
+    """
+
     project_id: Optional[str] = None
     name: str
+
     country: Optional[str] = None
     state: Optional[str] = None
     municipality: Optional[str] = None
+
     land_use: LandUse
     area_ha: float = Field(gt=0)
+
     coordinates: Coordinates
     geometry: Optional[Geometry] = None
+
     reference_year: int
     baseline_year: Optional[int] = None
+
+    # Estratificação metodológica
+    climate_region: Optional[IPCCClimateRegion] = None
+    soil_type: Optional[IPCCSoilType] = None
+    soil_type_source_classification: Optional[str] = None
+    tillage: Optional[TillageManagement] = None
+    carbon_input_level: Optional[CarbonInputLevel] = None
+
+    # Estratificação adicional
     climate_domain: Optional[str] = None
     biome: Optional[str] = None
     region: Optional[str] = None
-    soil_type: Optional[str] = None
+    ecological_zone: Optional[str] = None
+    forest_type: Optional[str] = None
+    continent: Optional[str] = None
+    species: Optional[str] = None
+    forest_origin: Optional[str] = None
+    forest_status: Optional[str] = None
 
 
 class CreateInventoryRequest(BaseModel):
@@ -59,7 +91,11 @@ class CreateInventoryRequest(BaseModel):
     soil: Optional[SoilObservation] = None
     plots: list[Plot] = Field(default_factory=list)
     vegetation: Optional[VegetationDescription] = None
-    carbon_fraction_override: Optional[float] = Field(default=None, gt=0, le=1)
+    carbon_fraction_override: Optional[float] = Field(
+        default=None,
+        gt=0,
+        le=1,
+    )
     carbon_fraction_source: Optional[str] = None
     notes: Optional[str] = None
 
@@ -77,22 +113,41 @@ class TreeMeasurementRequest(BaseModel):
     inventory_id: str
     plots: list[Plot] = Field(default_factory=list)
     trees: list[TreeMeasurement] = Field(default_factory=list)
+
     #: Usado quando ``trees`` é enviado sem estrutura de parcela.
     plot_id: Optional[str] = None
-    plot_area_m2: Optional[float] = Field(default=None, gt=0)
+    plot_area_m2: Optional[float] = Field(
+        default=None,
+        gt=0,
+    )
 
 
 class CalculateRequest(BaseModel):
     inventory_id: str
     baseline_inventory_id: Optional[str] = None
     mode: Optional[CalculationMode] = None
+
     events: list[LandEvent] = Field(default_factory=list)
-    operational_emissions: list[OperationalEmissionEntry] = Field(default_factory=list)
-    #: Parâmetros específicos do projeto por categoria de fator
-    #: (ex.: {"root_to_shoot_ratio": {"value": 0.24, "unit": "t BGB / t AGB", ...}}).
-    project_parameters: dict[str, ProjectParameter] = Field(default_factory=dict)
+    operational_emissions: list[OperationalEmissionEntry] = Field(
+        default_factory=list
+    )
+
+    #: Parâmetros específicos do projeto por categoria de fator.
+    #: Ex.:
+    #: {
+    #:   "root_to_shoot_ratio": {
+    #:       "value": 0.24,
+    #:       "unit": "t BGB / t AGB",
+    #:       ...
+    #:   }
+    #: }
+    project_parameters: dict[str, ProjectParameter] = Field(
+        default_factory=dict
+    )
+
     #: Se True, recusa fatores REQUIRES_VALIDATION em vez de apenas alertar.
     strict_factor_validation: bool = False
+
     use_stored_events: bool = True
 
 
